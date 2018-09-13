@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmln="http://wwww.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <link  rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <script type="text/javascript" src= "/static/jquery.min.js" th:src = "@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" src ="/static/bootstrap.min.js" th:src = "@{/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+<header>
+    <div role="navigation">
+        <div class="navbar navbar-inverse">
+            <a href="#" class="navbar-brand">Notes</a>
+            <div class=" navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Manage Notes</a> </li>
+                    <li><a href="#">All Notes</a> </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <h1>Notes</h1>
+
+  <form class="form-group" action="/notesEdit" th:action="@{/notesEdit}" method="post">
+      <input th:type="hidden" name="id" th:field="${notes.id}" />
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" th:field="${notes.title}" />
+<div class="form-group">
+    <label for="content">Content</label>
+    <textarea class="form-control" id="content" th:field="${notes.content}"></textarea>
+</div>
+<button type="submit" class="btn btn-primary">Save</button>
+<a href="#" th:href="@{/}" class="btn btn-danger" role="button">Cancel</a>
+</form>
+
+
+
+</div>
+
+</body>
+</html>
